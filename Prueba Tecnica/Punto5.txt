@@ -1,0 +1,4 @@
+Para obtener toda la información debo realizar la búsqueda en 4 tablas adicional a la del empleado, teniendo en mente que las bebidas se encuentran en CategoryName de Categories, por lo que asociando el ID de cada una de las tablas se obtiene el listado de empleados asociados a la categoría de Bebidas,
+haciendo un paso por Ordenes donde se asocia el ID del empleado con el ID de la orden, luego a detalles de ordenes asociando el ID de la orden, luego a productos asociando el ID del producto y por ultimo las Categorías asociando el ID de las categorías.
+
+SELECT e.EmployeeID, e.FirstName, e.LastName, o.OrderID, p.ProductName, c.CategoryName FROM Employees e JOIN Orders o ON e.EmployeeID = o.EmployeeID JOIN [Order Details] od ON o.OrderID = od.OrderID JOIN Products p ON od.ProductID = p.ProductID JOIN Categories c ON p.CategoryID = c.CategoryID WHERE c.CategoryName = 'Beverages';
